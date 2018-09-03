@@ -15,6 +15,8 @@ namespace LarryApplication.api.Controllers
     public class ValuesController : ControllerBase
     {
         private readonly DataContext _context;
+
+        
         public ValuesController(DataContext context)
         {
             _context = context;
@@ -22,7 +24,7 @@ namespace LarryApplication.api.Controllers
         }
         // GET api/values
         [HttpGet]
-        
+        [AllowAnonymous]
         public async  Task<IActionResult> GetValues()
         {
             var values = await _context.Values.ToListAsync();

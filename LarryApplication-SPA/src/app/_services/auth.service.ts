@@ -10,8 +10,8 @@ export class AuthService {
 constructor(private http: HttpClient) { }
 
 
-login(guest: any) {
-  return this.http.post(this.baseurl + 'login', guest).pipe(
+login(model: any) {
+  return this.http.post(this.baseurl + 'login', model).pipe(
     map((response: any) => {
       const user = response;
       if (user) {
@@ -19,5 +19,10 @@ login(guest: any) {
       }
     }
   ));
+}
+
+register(model: any) {
+  return this.http.post(this.baseurl + 'register', model);
+
 }
 }
